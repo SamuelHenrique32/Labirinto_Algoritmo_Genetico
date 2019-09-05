@@ -1,6 +1,7 @@
-from Classes.Genetic import Genetic
-from Classes.Population import Population
-
+from Model.Genetic import Genetic
+from Model.Population import Population
+from Model.Result import Result
+import json
 def main():
         # Define a solução
         Genetic.Goal = ["01","01","01","00","00","01","01","00","01","10","10","10","01","00","00","00","00","00","11","00","00","01","00","00","11","11"]
@@ -35,6 +36,10 @@ def main():
         print(str(Genetic.Goal) +  " | Aptidão: " + str(len(Genetic.Goal)))
         
         pop = Population()
+
+        r = Result(pop.getFirst().getScore(),pop.getFirst().getDna(),pop.getGeneration())
+
+        print(json.dumps(r.__dict__)) 
 
         print("Geração " + str(pop.getGeneration()) + " | Aptidão: " + str(pop.getFirst().getScore()) + " | Melhor: " + str(pop.getFirst().getDna()))
 

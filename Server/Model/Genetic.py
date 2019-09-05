@@ -11,4 +11,3 @@ class Genetic :
     CrossoverPoints = 2
     Population = None
     MaxGenerations = 0
-
