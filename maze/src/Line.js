@@ -35,9 +35,9 @@ class Line extends Component {
         let size = 100/this.props.line.length 
         let t = size.toString() + "%"
         return (
-        <Grid item xs={12} className={classes.line}>
+        <Grid item xs={12} className={classes.line} style={{height:size.toString() + "%"}}>
             {this.props.line.map((v)=>{
-                return(<Grid container style={{width:size.toString() + "%",height:size.toString() + "vh"}}><Cell number={v}/></Grid>)
+                return(<Grid container style={{width:size.toString() + "%",height:"100%"}}><Cell number={v}/></Grid>)
             })}
         </Grid>);
     }

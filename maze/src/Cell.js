@@ -27,16 +27,26 @@ class Cell extends Component {
 
     //Component methods
     getColor = () =>{
-        if(this.props.number === 1){
+        if(this.props.number.center === 1){
             return "black"
-        }else if(this.props.number === 2){
+        }else if(this.props.number.center === 2){
             return "green"
-        }else if(this.props.number === 3){
+        }else if(this.props.number.center === 3){
             return "red"
-        }else if(this.props.number === 0){
+        }else if(this.props.number.center === 0){
             return "white"
-        }else if(this.props.number === 4){
+        }else if(this.props.number.center === 4){
             return "yellow"
+        }else{
+            return "white"
+        }
+    }
+
+    getMargin = (prop) =>{
+        if(this.props.number[prop] === 1){
+            return "3px"
+        }else{
+            return "0px"
         }
     }
     //Store methods
@@ -44,7 +54,18 @@ class Cell extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <Grid container className={classes.cell} style={{backgroundColor:this.getColor()}}>
+            <Grid container className={classes.cell} 
+                style={
+                    {
+                        backgroundColor:this.getColor(),
+                        borderTop:this.getMargin("top"),
+                        borderLeft:this.getMargin("left"),
+                        borderBottom:this.getMargin("bottom"),
+                        borderRight:this.getMargin("right"),
+                        borderColor:"black",
+                        borderStyle:"solid"
+                    }
+                }>
             </Grid>
         );
     }
