@@ -1,40 +1,32 @@
 class Params(object):
-    def __init__(self,
-                   goal,
-               alphabet,
-               percentCrossover,
-               percentMutation,
-               elitism,
-               maxPopulation,
-               maxGenerations,
-               crossoverPoints,
-               maxMutation,
-               numberSelection):
-        self.goal = goal
-        self.alphabet = alphabet
-        self.percentCrossover = percentCrossover
-        self.percentMutation = percentMutation
-        self.elitism = elitism
-        self.maxPopulation = maxPopulation
-        self.maxGenerations = maxGenerations
-        self.crossoverPoints = crossoverPoints
-        self.maxMutation = maxMutation
-        self.numberSelection = numberSelection
-    
-    def getGoal(self):
-        return self.goal
-        
-    def getAlphabet(self):
-        return self.alphabet
-        
+    def __init__(self):
+        self.percentCrossover = 0
+        self.percentMutation = 0
+        self.maxPopulation = 0
+        self.maxGenerations = 0
+        self.crossoverPoints = 0
+        self.maxMutation = 0
+        self.numberSelection = 0,
+        self.wallPoint = 0
+        self.offPoint = 0
+        self.walkPoint = 0
+        self.goalPoint = 0
+
+   
+    def getWalkPoint(self):
+        return self.walkPoint
+
+    def getOffPoint(self):
+        return self.offPoint
+
+    def getWallPoint(self):
+        return self.wallPoint
+
     def getPercentCrossover(self):
        return self.percentCrossover
 
     def getPercentMutation(self):
         return self.percentMutation
-        
-    def getElitism(self):
-        return self.elitism
         
     def getMaxPopulation(self):
         return self.maxPopulation
@@ -51,20 +43,11 @@ class Params(object):
     def getNumberSelection(self):
         return self.numberSelection
 
-    def setGoal(self,goal):
-        self.goal = goal
-        
-    def setAlphabet(self,alphabet):
-        self.alphabet = alphabet
-        
     def setPercentCrossover(self,percentCrossover):
         self.percentCrossover = percentCrossover
 
     def setPercentMutation(self,percentMutation):
         self.percentMutation =percentMutation
-        
-    def setElitism(self,elitism):
-        self.elitism = elitism
         
     def setMaxPopulation(self,maxPopulation):
         self.maxPopulation = maxPopulation
@@ -80,3 +63,15 @@ class Params(object):
 
     def setNumberSelection(self,numberSelection):
         self.numberSelection = numberSelection
+
+    def setGoalPoint(self,goalPoint):
+        self.goalPoint = goalPoint
+
+    def setWalkPoint(self,walkPoint):
+        self.walkPoint = walkPoint
+    
+    def setOffPoint(self,offPoint):
+        self.offPoint = offPoint
+
+    def setWallPoint(self,wallPoint):
+        self.wallPoint = wallPoint

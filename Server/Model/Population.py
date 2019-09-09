@@ -21,13 +21,24 @@ class Population :
 
     #Gera a população inicial
     def generateInitialPopulation(self):
-        for i in range(0,Genetic.MaxPopulation-1):
-            self.population.append(Individual(None))
+        for i in range(0,Genetic.MaxPopulation):
+            ind = Individual(None)
+        #    print(ind.getScore())
+            self.population.append(ind)
+        #for i in range(0,Genetic.MaxPopulation):
+        #    print(self.population[i].getScore())
+        
         self.sortPopulation()
     
     #Ordena a população por score
     def sortPopulation(self):
+        #for i in range(0,Genetic.MaxPopulation):
+        #    print(self.population[i].getDna())
+        
         self.population = sorted(self.population, key=lambda x: x.Score,reverse=True)
+        
+        #for i in range(0,Genetic.MaxPopulation):
+        #    print(self.population[i].getDna())
 
     #Criação da nova geração
     def createNewGeneration(self):
@@ -56,13 +67,19 @@ class Population :
 
         self.numberGenerations = self.numberGenerations + 1
 
+        self.isFinal()
     #Seleção por torneio
     def selection(self):
         selected = []
         for i in range(0,Genetic.NumberSelection):
-            selected.append(self.population[Util.getRandomInt(0,Genetic.MaxPopulation-1)-1])
+            selected.append(self.population[Util.getRandomInt(0,Genetic.NumberSelection-1)])
         selected = sorted(selected, key=lambda x: x.Score, reverse=True)
         return [selected[0],selected[1]]
+    
+    #Verifica se chagou no numero de iteracoes maximas
+    def isFinal(self):
+        if self.numberGenerations >= Genetic.MaxGenerations:
+            Genetic.IsFound = True
     
     #Crossver com n pontos
     def crossver(self,parents):

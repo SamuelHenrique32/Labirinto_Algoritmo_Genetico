@@ -5,7 +5,7 @@ import json
 def main():
         # Define a solução
         Genetic.Goal = ["01","01","01","00","00","01","01","00","01","10","10","10","01","00","00","00","00","00","11","00","00","01","00","00","11","11"]
-        
+       
         # Define os caracteres existentes
         Genetic.Alphabet = ["00","01","10","11"]
         
@@ -19,31 +19,37 @@ def main():
         Genetic.Elitism = True
 
         #tamanho da população
-        Genetic.MaxPopulation =  100
+        Genetic.MaxPopulation =  2
 
         #numero máximo de gerações
-        Genetic.MaxGenerations = 100
+        Genetic.MaxGenerations = 3
 
         #número de corte no crossover
-        Genetic.CrossoverPoints = 1
+        Genetic.CrossoverPoints = 3
 
         #número de genes a serem mudades
         Genetic.MaxMutation = 4
 
         #número de filhos sortedos pelo torneio
-        Genetic.NumberSelection = 4
+        Genetic.NumberSelection = 20
+
+        Genetic.WalkPoint = 10
+
+        Genetic.GoalPoint = 20
+
+        Genetic.WallPoint = -20
 
         print(str(Genetic.Goal) +  " | Aptidão: " + str(len(Genetic.Goal)))
         
         pop = Population()
 
-        r = Result(pop.getFirst().getScore(),pop.getFirst().getDna(),pop.getGeneration())
-
-        print(json.dumps(r.__dict__)) 
+       
 
         print("Geração " + str(pop.getGeneration()) + " | Aptidão: " + str(pop.getFirst().getScore()) + " | Melhor: " + str(pop.getFirst().getDna()))
 
-        while Genetic.IsFound != True and pop.getGeneration() < Genetic.MaxGenerations:
+        #print("Teste")
+        #print(pop.getFirst().getScore())
+        while Genetic.IsFound != True:
 
             pop.createNewGeneration()
 
