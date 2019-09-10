@@ -18,6 +18,8 @@ Servidor Python:
 	
 Front-End (React):
 
+	Instalar Node.js
+
 	Navegar para a pasta: cd \maze
 
 	npm install
