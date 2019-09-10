@@ -25,7 +25,7 @@ Genetic.PercentMutation = 0.045
 Genetic.Elitism = True
 
 #tamanho da população
-Genetic.MaxPopulation =  1000
+Genetic.MaxPopulation =  30000
 
 #numero máximo de gerações
 Genetic.MaxGenerations = 100
@@ -34,18 +34,18 @@ Genetic.MaxGenerations = 100
 Genetic.CrossoverPoints = 3
 
 #número de genes a serem mudades
-Genetic.MaxMutation = 4
+Genetic.MaxMutation = 10
 
 #número de filhos sortedos pelo torneio
-Genetic.NumberSelection = 20
+Genetic.NumberSelection = 100
 
-Genetic.WalkPoint = 10
+Genetic.WalkPoint = 20
 
-Genetic.GoalPoint = 20
+Genetic.GoalPoint = 70
 
-Genetic.WallPoint = -20
+Genetic.WallPoint = -40
 
-Genetic.OffPoint = -15
+Genetic.OffPoint = -10
 
 pop = Population()
 
@@ -61,6 +61,7 @@ def init():
     else:
         response.content_type = 'application/json'
         pop = Population()
+        pop.setGenerations(1)
         r = Result(pop.getFirst().getScore(),pop.getFirst().getDna(),pop.getGeneration(),Genetic.IsFound)
         return json.dumps(r.__dict__)
 

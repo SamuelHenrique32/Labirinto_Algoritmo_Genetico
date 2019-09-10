@@ -31,7 +31,7 @@ def main():
         Genetic.MaxMutation = 4
 
         #número de filhos sortedos pelo torneio
-        Genetic.NumberSelection = 20
+        Genetic.NumberSelection = 3
 
         Genetic.WalkPoint = 10
 

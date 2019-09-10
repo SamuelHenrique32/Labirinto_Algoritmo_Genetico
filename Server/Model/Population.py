@@ -10,7 +10,9 @@ class Population :
         self.numberGenerations = 1
 
         self.generateInitialPopulation()
-    
+    def setGenerations(self,generations):
+        self.numberGenerations = generations
+
     #Retora a geração
     def getGeneration(self):
         return self.numberGenerations
@@ -72,7 +74,7 @@ class Population :
     def selection(self):
         selected = []
         for i in range(0,Genetic.NumberSelection):
-            selected.append(self.population[Util.getRandomInt(0,Genetic.NumberSelection-1)])
+            selected.append(self.population[Util.getRandomInt(0,len(self.population)-1)])
         selected = sorted(selected, key=lambda x: x.Score, reverse=True)
         return [selected[0],selected[1]]
     
