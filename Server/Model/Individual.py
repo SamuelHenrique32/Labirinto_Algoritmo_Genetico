@@ -173,18 +173,18 @@ class Individual :
 
                     if self.isWall(self.DNA[i]):
                         wall = wall + Genetic.WallPoint
-                        print(Genetic.WallPoint)
+                        #print(Genetic.WallPoint)
                         #print("Movimento com parede")
                 else:
                     repited = repited + Genetic.WalkPoint
                     countRepited = countRepited + 1
-                    print(Genetic.WalkPoint)
+                    #print(Genetic.WalkPoint)
                     #print("Movimento Repetido")
 
             else:
                 #print("Movimento fora do tabuleiro")
                 out = out + Genetic.OffPoint
-                print(Genetic.OffPoint)
+                #print(Genetic.OffPoint)
             
         x = []
         y = []
@@ -197,28 +197,29 @@ class Individual :
                 sizex = max(x) - min(x)
                 sizey = max(y) - min(y)
 
-        print(sizex * 10)
-        print(sizey * 10)
-        #print("Casas repetidas - " + str(repited) + "/" + str(len(self.DNA)))
-        #print("Passagens pelas paredes - " + str(wall)+ "/" + str(len(self.DNA)))
-        #print("Saidas do Tabuleiro - " + str(out)+ "/" + str(len(self.DNA)))
-        #print("Linhas ocupadas - " + str(sizex))
-        #print("Colunas ocupadas - " + str(sizey))
-        #print("Casas visitadas - " +str(len(self.last))+ "/" + str(len(self.DNA)))
+        #print(sizex * 10)
+        #print(sizey * 10)
+        
+        #print("Casas repetidas - " + str(countRepited) + "/" + str(len(self.DNA)))
+        #print("Passagens pelas paredes - " + str(wall / Genetic.WallPoint)+ "/" + str(len(self.DNA)))
+        #print("Saidas do Tabuleiro - " + str(out / Genetic.OffPoint)+ "/" + str(len(self.DNA)))
+        #print("Linhas ocupadas - " + str(sizex) + "/ 9")
+        #print("Colunas ocupadas - " + str(sizey) + "/ 9")
+        #print("Casas visitadas - " +str(27 - countRepited)+ "/" + str(len(self.DNA)))
         soma  = repited + wall + out
-        print("Soma" + str(soma))
-        self.Score  = self.Score  - soma 
+        #print("Soma punições | " + str(soma))
+        self.Score  = self.Score  + soma 
         #colocar contador dos repitidos
-        print("Não repetidos" + str(27 - countRepited))
+        #print("Não repetidos" + str(27 - countRepited))
         self.Score  = self.Score + 27 - countRepited
         self.Score = self.Score + (sizex * 10) + (sizey * 10)
-
+        #print("Ocupação no tabuleiro | " + str((sizex * 10) + (sizey * 10)))
         if Genetic.Position == Genetic.Stop1:
                 #print("Position - " + str(Genetic.Position))
-                #print("Stop - " + str(Genetic.Stop1))
-                print(Genetic.GoalPoint)
+                #print("Stop | " + str(Genetic.Stop1))
+                #print(Genetic.GoalPoint)
                 self.Score = self.Score + Genetic.GoalPoint
-        print(self.Score)
+        #print("Score | " + str(self.Score))
     def rep(self,mov):
         out = True
         for i in range(0,len(self.last)-1):

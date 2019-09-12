@@ -28,24 +28,24 @@ Genetic.Elitism = True
 Genetic.MaxPopulation =  30000
 
 #numero máximo de gerações
-Genetic.MaxGenerations = 100
+Genetic.MaxGenerations = 1000
 
 #número de corte no crossover
-Genetic.CrossoverPoints = 3
+Genetic.CrossoverPoints = 1
 
 #número de genes a serem mudades
-Genetic.MaxMutation = 10
+Genetic.MaxMutation = 1
 
 #número de filhos sortedos pelo torneio
-Genetic.NumberSelection = 100
+Genetic.NumberSelection = 10
 
-Genetic.WalkPoint = 20
+Genetic.WalkPoint = -20
 
-Genetic.GoalPoint = 70
+Genetic.GoalPoint = 500
 
-Genetic.WallPoint = -40
+Genetic.WallPoint = -100
 
-Genetic.OffPoint = -10
+Genetic.OffPoint = -1000
 
 pop = Population()
 

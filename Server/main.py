@@ -19,10 +19,10 @@ def main():
         Genetic.Elitism = True
 
         #tamanho da população
-        Genetic.MaxPopulation =  2
+        Genetic.MaxPopulation =  100
 
         #numero máximo de gerações
-        Genetic.MaxGenerations = 3
+        Genetic.MaxGenerations = 100
 
         #número de corte no crossover
         Genetic.CrossoverPoints = 1
@@ -31,13 +31,13 @@ def main():
         Genetic.MaxMutation = 1
 
         #número de filhos sortedos pelo torneio
-        Genetic.NumberSelection = 3
+        Genetic.NumberSelection = 10
 
-        Genetic.WalkPoint = -100
+        Genetic.WalkPoint = -20
 
-        Genetic.GoalPoint = 1000
+        Genetic.GoalPoint = 500
 
-        Genetic.WallPoint = -500
+        Genetic.WallPoint = -100
 
         Genetic.OffPoint = -1000
 
