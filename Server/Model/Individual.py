@@ -43,12 +43,11 @@ class Individual :
     def generateScore(self):
 
         self.Score = 0
-        #self.newScore()
         max = len(self.DNA)
         for i in range(0,max):
             if self.DNA[i] == Genetic.Goal[i] :
                 self.Score += 1
-        #self.isEquals()
+        self.isEquals()
     
     def check_blockage(self,row_pos,col_pos):
             return (Genetic.Board[row_pos + 1][col_pos] == 1 or      # Return True if any move leads to a block
@@ -141,6 +140,9 @@ class Individual :
         #lista de pontos passados
         self.last = [[9,0]]
         
+        #casas repitidas
+        countRepited = 0
+
         #numero de vezes volta
         repited = 0
 
@@ -171,14 +173,18 @@ class Individual :
 
                     if self.isWall(self.DNA[i]):
                         wall = wall + Genetic.WallPoint
+                        print(Genetic.WallPoint)
                         #print("Movimento com parede")
                 else:
                     repited = repited + Genetic.WalkPoint
+                    countRepited = countRepited + 1
+                    print(Genetic.WalkPoint)
                     #print("Movimento Repetido")
 
             else:
                 #print("Movimento fora do tabuleiro")
                 out = out + Genetic.OffPoint
+                print(Genetic.OffPoint)
             
         x = []
         y = []
@@ -191,6 +197,8 @@ class Individual :
                 sizex = max(x) - min(x)
                 sizey = max(y) - min(y)
 
+        print(sizex * 10)
+        print(sizey * 10)
         #print("Casas repetidas - " + str(repited) + "/" + str(len(self.DNA)))
         #print("Passagens pelas paredes - " + str(wall)+ "/" + str(len(self.DNA)))
         #print("Saidas do Tabuleiro - " + str(out)+ "/" + str(len(self.DNA)))
@@ -198,15 +206,19 @@ class Individual :
         #print("Colunas ocupadas - " + str(sizey))
         #print("Casas visitadas - " +str(len(self.last))+ "/" + str(len(self.DNA)))
         soma  = repited + wall + out
+        print("Soma" + str(soma))
         self.Score  = self.Score  - soma 
-        self.Score  = self.Score + sizex + sizey
-
+        #colocar contador dos repitidos
+        print("Não repetidos" + str(27 - countRepited))
+        self.Score  = self.Score + 27 - countRepited
+        self.Score = self.Score + (sizex * 10) + (sizey * 10)
 
         if Genetic.Position == Genetic.Stop1:
                 #print("Position - " + str(Genetic.Position))
                 #print("Stop - " + str(Genetic.Stop1))
+                print(Genetic.GoalPoint)
                 self.Score = self.Score + Genetic.GoalPoint
-        #print(self.Score)
+        print(self.Score)
     def rep(self,mov):
         out = True
         for i in range(0,len(self.last)-1):

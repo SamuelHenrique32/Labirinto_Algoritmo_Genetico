@@ -25,19 +25,21 @@ def main():
         Genetic.MaxGenerations = 3
 
         #número de corte no crossover
-        Genetic.CrossoverPoints = 3
+        Genetic.CrossoverPoints = 1
 
         #número de genes a serem mudades
-        Genetic.MaxMutation = 4
+        Genetic.MaxMutation = 1
 
         #número de filhos sortedos pelo torneio
         Genetic.NumberSelection = 3
 
-        Genetic.WalkPoint = 10
+        Genetic.WalkPoint = -100
 
-        Genetic.GoalPoint = 20
+        Genetic.GoalPoint = 1000
 
-        Genetic.WallPoint = -20
+        Genetic.WallPoint = -500
+
+        Genetic.OffPoint = -1000
 
         print(str(Genetic.Goal) +  " | Aptidão: " + str(len(Genetic.Goal)))
         
